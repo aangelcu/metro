@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  property_type_id: 1
+  zone_id: 1
+  date: 2014-12-18
+  stratus: 1
+  built_area: 1
+  m2_sale_value: 9.99
+  m2_rent_value: 9.99
+
+two:
+  property_type_id: 1
+  zone_id: 1
+  date: 2014-12-18
+  stratus: 1
+  built_area: 1
+  m2_sale_value: 9.99
+  m2_rent_value: 9.99
