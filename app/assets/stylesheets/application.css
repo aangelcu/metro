@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+
+ #Titulo {
+ 	font-size: 25px;
+ 	margin-left: 90px;
+ }
