@@ -1,2 +1,72 @@
-<h1>METRO</h1>
+<h1>M2 SEARCH</h1>
 
+<%= form_for :dashboard do |f| %>
+
+  <p>
+    <%= f.label :from %>
+    <%= date_field(:user, :from) %>
+  </p>
+
+  <p>
+    <%= f.label :to %>
+    <%= date_field(:user, :to) %>
+  </p>
+
+	<p>
+		<%= f.label :Mercado %>
+		<select name="post[category]">
+		  <option>Venta</option>
+		  <option>Alquiler</option>
+		</select>
+	</p>
+
+	<p>
+		<%= f.label :Tipo_de_Propiedad %>
+		<select name="post[category]">
+		  <option>Apartamentos</option>
+		  <option>Casas</option>
+		  <option>Oficinas</option>
+		  <option>Bodegas</option>
+		</select>
+	</p>
+
+	<p>
+		<%= f.label :Departamento %>
+		<select name="post[category]">
+		  <option>Antioquia</option>
+		  <option>Cundinamarca</option>
+		  <option>Valle</option>
+		</select>
+	</p>
+
+	<p>
+		<%= f.label :Barrio %>
+		<select name="post[category]">
+		  <option>Laureles</option>
+		  <option>Estadio</option>
+		  <option>Poblado</option>
+		</select>
+	</p>
+
+		<p>
+		<%= f.label :Estrato %>
+		<select name="post[category]">
+		  <option>5</option>
+		  <option>4</option>
+		  <option>3</option>
+		</select>
+	</p>
+
+		<p>
+		<%= f.label :Area_Construida %>
+		<select name="post[category]">
+		  <option>0 a 100 Mts2</option>
+		  <option>100 a 200 Mts2</option>
+		  <option>200 a 500 Mts2</option>
+		</select>
+	</p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
