@@ -9,5 +9,6 @@
 #
 
 class PropertyType < ActiveRecord::Base
+	self.inheritance_column = nil
 	has_many :properties
 end

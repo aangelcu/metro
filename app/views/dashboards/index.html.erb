@@ -1,5 +1,3 @@
-<div>
-	  
 <%= form_for :dashboard do |f| %>
 
   <p>
@@ -22,53 +20,25 @@
 
 	<p>
 		<%= f.label :Tipo_de_Propiedad %>
-		<select name="post[category]">
-		  <option>Apartamentos</option>
-		  <option>Casas</option>
-		  <option>Oficinas</option>
-		  <option>Bodegas</option>
-		</select>
+		<%= f.collection_select :property_type_id, PropertyType.all,:id,:type %>
 	</p>
 
 	<p>
 		<%= f.label :Departamento %>
-		<select name="post[category]">
-		  <option>Antioquia</option>
-		  <option>Cundinamarca</option>
-		  <option>Valle</option>
-		</select>
-	</p>
-
-	<p>
-		<%= f.label :Barrio %>
-		<select name="post[category]">
-		  <option>Laureles</option>
-		  <option>Estadio</option>
-		  <option>Poblado</option>
-		</select>
+		<%= f.collection_select :state_id, State.all,:id,:name %>
 	</p>
 
 		<p>
 		<%= f.label :Estrato %>
-		<select name="post[category]">
-		  <option>5</option>
-		  <option>4</option>
-		  <option>3</option>
-		</select>
+		<%= f.collection_select :stratus, Property.select('stratus').uniq,:id,:stratus %>
 	</p>
 
 		<p>
 		<%= f.label :Area_Construida %>
-		<select name="post[category]">
-		  <option>0 a 100 Mts2</option>
-		  <option>100 a 200 Mts2</option>
-		  <option>200 a 500 Mts2</option>
-		</select>
+		<%= f.collection_select :built_area, Property.all,:id,:built_area %>
 	</p>
  
   <p>
     <%= f.submit %>
   </p>
 <% end %>
-
-</div>
