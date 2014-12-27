@@ -35,7 +35,7 @@
 
 		<p>
 		<%= f.label :Area_Construida %>
-		<%= f.collection_select :built_area, Property.all,:id,:built_area %>
+		<%= f.collection_select :built_area, Property.select('built_area').uniq,:id,:built_area %>
 	</p>
  
   <p>
