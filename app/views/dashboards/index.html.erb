@@ -1,17 +1,17 @@
-<%= form_for :dashboard do |f| %>
+<%= form_tag root_path, method: :get do %>
 
   <p>
-    <%= f.label :from %>
+  	<%= label_tag("From") %>
     <%= date_field(:user, :from) %>
   </p>
 
   <p>
-    <%= f.label :to %>
+    <%= label_tag("To") %>
     <%= date_field(:user, :to) %>
   </p>
 
 	<p>
-		<%= f.label :Mercado %>
+		<%= label_tag("Mercado") %>
 		<select name="post[category]">
 		  <option>Venta</option>
 		  <option>Alquiler</option>
@@ -19,26 +19,26 @@
 	</p>
 
 	<p>
-		<%= f.label :Tipo_de_Propiedad %>
-		<%= f.collection_select :property_type_id, PropertyType.all,:id,:type %>
+		<%= label_tag("Tipo_de_Propiedad") %>
+		<%= collection_select :property, :property_type_id, PropertyType.all,:id,:type %>
 	</p>
 
 	<p>
-		<%= f.label :Departamento %>
-		<%= f.collection_select :state_id, State.all,:id,:name %>
+		<%= label_tag("Departamento") %>
+		<%= collection_select :state, :state_id, State.all,:id,:name %>
 	</p>
 
 		<p>
-		<%= f.label :Estrato %>
-		<%= f.collection_select :stratus, Property.select('stratus').uniq,:id,:stratus %>
+		<%= label_tag("Estrato") %>
+		<%= collection_select :stratus, :stratus, Property.select('stratus').uniq,:id,:stratus %>
 	</p>
 
 		<p>
-		<%= f.label :Area_Construida %>
-		<%= f.collection_select :built_area, Property.select('built_area').uniq,:id,:built_area %>
+		<%= label_tag("Area_Construida") %>
+		<%= collection_select :built_area, :built_area, Property.select('built_area').uniq,:id,:built_area %>
 	</p>
  
   <p>
-    <%= f.submit %>
+    <%= submit_tag("Submit") %>
   </p>
 <% end %>
