@@ -19,19 +19,23 @@
 	</p>
 
 	<p>
-		<%= select_tag :property_type_id, options_from_collection_for_select( PropertyType.all, "id", "type", params[:property_type_id]), prompt: "Tipo de Propiedad" %>
+		<%= label_tag("Tipo_de_Propiedad") %>
+		<%= select_tag :property_type_id, options_from_collection_for_select( PropertyType.all, "id", "type", params[:property_type_id]) %>
 	</p>
 
 	<p>
-		<%= select_tag :state_id, options_from_collection_for_select(State.all, "id","name", params[:state_id]), prompt: "Departamento" %>
+		<%= label_tag("Departamento") %>
+		<%= select_tag :state_id, options_from_collection_for_select(State.all, "id","name", params[:state_id]) %>
 	</p>
 
 		<p>
-		<%= select_tag :stratus_id, options_from_collection_for_select( Property.select('stratus').uniq,"id", "stratus", params[:stratus_id]), prompt: "Estrato" %>
+		<%= label_tag("Estrato") %>
+		<%= select_tag :stratus_id, options_from_collection_for_select( Property.select('stratus').uniq,"id", "stratus", params[:stratus_id]) %>
 	</p>
 
 		<p>
-		<%= select_tag :built_area_id, options_from_collection_for_select( Property.select('built_area').uniq,"id", "built_area", params[:built_area_id]), prompt: "Area Construida" %>
+		<%= label_tag("Area_Construida") %>
+		<%= select_tag :built_area_id, options_from_collection_for_select( Property.select('built_area').uniq,"id", "built_area", params[:built_area_id]) %>
 	</p>
  
   <p>
