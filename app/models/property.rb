@@ -17,4 +17,17 @@
 class Property < ActiveRecord::Base
 	belongs_to :zone
 	belongs_to :property_type
+	def is_sale?
+		m2_sale_value != nil
+	end
+	def is_rent?
+		m2_rent_value != nil
+	end
+	def category
+		if is_sale?
+			return "sale"
+		elsif is_rent?
+			return "rent"
+		end
+	end
 end
