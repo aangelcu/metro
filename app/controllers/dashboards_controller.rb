@@ -15,6 +15,9 @@ class DashboardsController < ApplicationController
 				@properties = @properties.where(m2_sale_value: nil)
 			end
 		end
+		if params[:built_area].present?
+			@properties = @properties.where(built_area: built_area_range)
+		end
 		if params[:stratus].present?
 			@properties = @properties.where(stratus: params[:stratus])
 		end
@@ -31,4 +34,12 @@ class DashboardsController < ApplicationController
 
 end
 
-# Hacer el if del category diciendo q si me trae 0, entonces q me muestre "0 a 100 M2"
+def built_area_range
+	if params[:built_area] == '0'
+		[0..100] 
+	elsif params[:built_area] == '1'
+		[101..200] 
+	elsif params[:built_area] == '2'
+		[201..300]
+	end
+end

@@ -25,9 +25,9 @@ class Property < ActiveRecord::Base
 	end
 	def category
 		if is_sale?
-			return "sale"
+			return "Venta"
 		elsif is_rent?
-			return "rent"
+			return "Alquiler"
 		end
 	end
 end
