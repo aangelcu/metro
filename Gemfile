@@ -22,6 +22,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 #Bootsrap gem
 gem 'bootstrap-sass'
+
+gem 'raphael-rails', '~>2.1.2'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 

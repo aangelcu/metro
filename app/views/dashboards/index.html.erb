@@ -47,7 +47,7 @@
 </div>		<!-- end of col sm3  -->
 
 
-
+<!-- Table Results  -->
 <div class="col-sm-8">
 	<table class="table table-bordered" >
 		<tr>
@@ -85,5 +85,21 @@
 		</tr>
 		<% end %> 
 	</table>
-</div>   <!-- end of col sm3  -->
+</div>   <!-- end of table  -->
 
+<!-- Graph  -->
+<%= content_tag :div, "", id: "m2_chart", data: {properties: @properties} %>
+<!-- <div id="m2_chart" style="height: 250px;"></div> -->
+<!-- end of Graph  -->
+
+<!-- Morris Script for Graphs  -->
+<script> 
+new Morris.Line({
+  element: 'm2_chart',
+  data: $('#m2_chart').data('properties'),
+  xkey: 'created_at',
+  ykeys: ['m2_sale_value'],
+  labels: ['M2_Value']
+});
+</script>
+<!-- end of Morris Script  -->
