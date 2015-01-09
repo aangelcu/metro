@@ -30,4 +30,16 @@ class Property < ActiveRecord::Base
 			return "Alquiler"
 		end
 	end
+
+	def self.total_grouped_by_day(start)
+		properties = where(created_at: start.beginning_of_day..Time.zone.now)
+		properties = properties.group("date(created_at)")
+		properties = properties.select("created_at, avg(m2_sale_value) as total_price ")
+		properties.each_with_object({}) do |property, prices|
+			prices[property.created_at.to_date] = property.total_price
+		end
+	end
+
 end
+
+

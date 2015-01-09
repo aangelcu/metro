@@ -2,6 +2,7 @@ class DashboardsController < ApplicationController
 
 	def index
 		@properties = Property.joins(zone: :city)
+		params[:from] = params[:from] || 1.year.ago
 		if params[:from].present?
 			@properties = @properties.where("date >= ?", params[:from])
 		end
