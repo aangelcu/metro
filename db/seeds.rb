@@ -29,8 +29,8 @@ property_types = [
 	PropertyType.create(type: "Apartamentos")
 ]
 
-(2.years.ago.to_date..Date.current).each do |day|
-	num = Random.rand(10...20)
+(3.months.ago.to_date..Date.current).each do |day|
+	num = Random.rand(100...200)
 	num.times do |p|
 		Property.create(date: day, zone: zones.sample, property_type: property_types.sample, stratus: Random.rand(1...6), m2_sale_value: Random.rand(500000...10000000), built_area: Random.rand(20...5000))
 	end
