@@ -4,7 +4,7 @@ module DashboardsHelper
 		(start.to_date..Date.today).map do |date|
 			puts "#{properties_by_day[date]} == #{date}"
 			{
-				created_at: date,
+				date: date,
    			m2_sale_value: properties_by_day[date] || 0
 			}
 		end	

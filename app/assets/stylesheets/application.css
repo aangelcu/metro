@@ -18,3 +18,12 @@
  	font-size: 25px;
  	margin-left: 90px;
  }
+
+ .panel-body {
+  padding: 15px;
+}
+
+.center-table {
+  margin: 0 auto;
+  float: none;
+}
