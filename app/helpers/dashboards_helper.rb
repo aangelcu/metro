@@ -1,7 +1,7 @@
 module DashboardsHelper
-	def properties_chart_data(start)
+	def properties_chart_data(start, end_date)
 		properties_by_day = {}
-		(start.to_date..Date.today).map do |date|
+		(start.to_date..end_date).map do |date|
 			# puts "#{properties_by_day[date]} == #{date}"
 			p = {
 				date: date,

@@ -1,16 +1,22 @@
 class DashboardsController < ApplicationController
 
 	def index
+		params[:from] = params[:from] || 3.months.ago
+		params[:to] = params[:to] || 15.days.ago
+
 		@properties = [ build_query(0) ]
 
-		if params[:built_area].present? && params[:built_area][1].present?
+		if params[:built_area_range].present? && params[:built_area_range][1].present?
 			@properties << build_query(1)
+		end
+
+		if params[:built_area_range].present? && params[:built_area_range][2].present?
+			@properties << build_query(2)
 		end
   end
 
   def build_query(index)
   	properties = Property.joins(zone: :city)
-		params[:from] = params[:from] || 3.months.ago
 		if params[:from].present?
 			properties = properties.where("date >= ?", params[:from])
 		end
@@ -24,12 +30,12 @@ class DashboardsController < ApplicationController
 				properties = properties.where(m2_sale_value: nil)
 			end
 		end
-		if params[:built_area].present? && params[:built_area][index].present?
-			properties = properties.where(built_area: built_area_range)
-		end
-		if params[:stratus].present? && params[:stratus][index].present?
-			properties = properties.where(stratus: params[:stratus][index])
-		end
+		# if params[:built_area_range].present? && params[:built_area_range][index].present?
+		# 	properties = properties.where(built_area: built_area_range(index))
+		# end
+		# if params[:stratus].present? && params[:stratus][index].present?
+		# 	properties = properties.where(stratus: params[:stratus][index])
+		# end
 		if params[:property_type_id].present? && params[:property_type_id][index].present?
 			properties = properties.where(property_type_id: params[:property_type_id] [index])
 		end
@@ -44,11 +50,11 @@ class DashboardsController < ApplicationController
   end
 
   def built_area_range(index)
-		if params[:built_area][index] == '0'
+		if params[:built_area_range][index] == '0'
 			[0..100] 
-		elsif params[:built_area][index] == '1'
+		elsif params[:built_area_range][index] == '1'
 			[101..200] 
-		elsif params[:built_area][index] == '2'
+		elsif params[:built_area_range][index] == '2'
 			[201..300]
 		end
 	end
