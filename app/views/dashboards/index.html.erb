@@ -1,134 +1,218 @@
 
-	<!-- Filters - Side Nav Bar   -->
-	<%= form_tag root_path, method: :get do %>
-	<div class="row">
-		<div class="col-sm-4">
-			<h3>Datos de Busqueda</h3>
-				<p>
-					<%= label_tag("From") %>
-					<%= date_field_tag(:from, params[:from].to_date) %>
-				</p>
-				<p>
-					<%= label_tag("To") %>
-					<%= date_field_tag(:to, params[:to].to_date) %>
-				</p>
-				<p>
-					<%= label_tag("Mercado") %>
-					<select name="category">
-						<option value="sale">Venta</option>
-						<option value="rent">Alquiler</option>
-					</select>
-				</p>
-				<p>
-					<%= label_tag("Tipo_de_Propiedad") %>
-					<%= select_tag "property_type_id[]", options_from_collection_for_select( PropertyType.all, "id", "type", params[:property_type_id]) %>
-				</p>
-				<p>
-					<%= label_tag("Departamento") %>
-					<%= select_tag "state_id[]", options_from_collection_for_select(State.all, "id","name", params[:state_id]) %>
-				</p> 
-				<p>
-					<%= label_tag("Estrato") %>
-					<%= select_tag "stratus[]", options_for_select([1, 2, 3, 4, 5, 6], params[:stratus]) %>
-				</p>
-				<p>
-					<%= label_tag("Area_Construida") %>
-					<%= select_tag "built_area_range[]", options_for_select([["0 a 100 M2", 0], ["101 a 200 M2", 1], ["201 a 300 M2", 2]]) %>
-				</p>
-				<!-- First Submit Button  -->
-				<p>
-					<%= submit_tag "Submit", name: nil, class: "btn btn-primary btn-md" %>
-				</p>
+<!-- Filters - Side Nav Bar   -->
+<%= form_tag root_path, method: :get do %>
 
-		</div>		<!-- end of Filters - nav-bar side  -->
+<div class="row">
+	<div class="col-sm-3">
+		<div id="wrapper">
+			<!-- Sidebar -->
+			<div id="sidebar-wrapper" id="lateral">
+				    <h3>
+				        Datos de Busqueda
+				    </h3>
+
+						<p>
+							<%= label_tag("From") %>
+							<%= date_field_tag(:from, params[:from].to_date) %>
+						</p>
+
+						<p>
+							<%= label_tag("To") %>
+							<%= date_field_tag(:to, params[:to].to_date) %>
+						</p>
+
+						<p>
+							<%= label_tag("Mercado") %>
+							<select name="category">
+								<option value="sale">Venta</option>
+								<option value="rent">Alquiler</option>
+							</select>
+						</p>
+
+						<p>
+							<%= label_tag("Tipo_de_Propiedad") %>
+							<%= select_tag "property_type_id[]", options_from_collection_for_select( PropertyType.all, "id", "type", params[:property_type_id]) %>
+						</p>
+
+						<p>
+							<%= label_tag("Departamento") %>
+							<%= select_tag "state_id[]", options_from_collection_for_select(State.all, "id","name", params[:state_id]) %>
+						</p> 
+
+						<p>
+							<%= label_tag("Estrato") %>
+							<%= select_tag "stratus[]", options_for_select([1, 2, 3, 4, 5, 6], params[:stratus]) %>
+						</p>
+
+						<p>
+							<%= label_tag("Area_Construida") %>
+							<%= select_tag "built_area_range[]", options_for_select([["0 a 100 M2", 0], ["101 a 200 M2", 1], ["201 a 300 M2", 2]]) %>
+						</p>
+						<!-- First Submit Button  -->
+						<p>
+							<%= submit_tag "Submit", name: nil, class: "btn btn-primary btn-md" %>
+						</p>
+
+			</div><!-- /#sidebar-wrapper -->
+		</div> <!-- /#wrapper -->
+	</div> <!-- /#col-sm-3 -->
 
 		<!-- Main Graph  -->
-		<div class="col-sm-8">
-			<div class="panel panel-default">
-				<div class="panel-heading">
+	<div class="col-sm-8" id="grafica">
+		<div class="panel panel-default">
+			<div class="panel-heading">
 					<h3 class="panel-title"> Valor M2 sobre el Tiempo</h3>
-				</div>
-					<div class="panel-body">
-						<div id="morris-area-chart"></div>
+			</div>
+				<div class="panel-body">
+					<div id="morris-area-chart">
 						<%= content_tag :div, "", id: "m2_chart", data: {properties: properties_chart_data(params[:from].to_date, params[:to].to_date)} %>
 					</div>
 				</div>
 			</div>
-		</div> <!-- end of Main Graph  -->
-	</div>		<!-- end of row  -->
+		</div>
+	</div> <!-- end of col-sm-9 Main Graph  -->
+</div>		<!-- end of row  -->
 
-	<!-- Vs. Search Filter Table   -->
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-8">
-				<table class="table table-hover table-bordered table-condensed">
-				  <thead>
-				  	<tr>
-				  		<th data-field="name"></th>
-				  	  <th data-field="name">Tipo de Propiedad</th>
-				  	  <th data-field="name">Departamento</th>
-				  	  <th data-field="name">Estrato</th>
-				  	  <th data-field="name">Area Construida</th>
-				  	</tr>
-				  </thead>
-				  <tbody>
-				    <tr class="info">
-				    	<td class="text-center"><strong>Tu Busqueda</strong></td>
-				      <td>
-				      	<%= select_tag nil, options_from_collection_for_select( PropertyType.all, "id", "type", params[:property_type_id]), {:disabled => true} %>
-				      </td>
-				      <td>
-				      	<%= select_tag nil, options_from_collection_for_select(State.all, "id","name", params[:state_id]), {:disabled => true} %>
-				      </td>
-				      <td>
-				      	<%= select_tag nil, options_for_select([1, 2, 3, 4, 5, 6], params[:stratus]), {:disabled => true} %> 
-				      </td>
-				      <td>
-				      	<%= select_tag nil, options_for_select([["0 a 100 M2", 0], ["101 a 200 M2", 1], ["201 a 300 M2", 2]], params[:built_area_range]), {:disabled => true} %>
-				      </td>
-				    </tr>
-				    <tr>
-				    	<td style= "color: white">hola</td>
-				    	<td></td>
-				    	<td></td>
-				    	<td></td>
-				    	<td></td>
-				    </tr>
-				    <tr class="active">
-				    	<td class="text-center"><strong>Vs #1</strong></td>
-				    	<td>
-				    		<%= select_tag "property_type_id[]", options_from_collection_for_select( PropertyType.all, "id", "type") %>
-				    	</td>
-				    	<td>
-				    		<%= select_tag "state_id[]", options_from_collection_for_select(State.all, "id","name") %>
-				    	</td>
-				    	<td><%= select_tag "stratus[]", options_for_select([1, 2, 3, 4, 5, 6]) %></td>
-				    	<td>
-				    		<%= select_tag "built_area_range[]", options_for_select([["0 a 100 M2", 0], ["101 a 200 M2", 1], ["201 a 300 M2", 2]], params[:built_area_range]) %>
-				    	</td>
-				    </tr>
-				    <tr class="success">
-				    	<td class="text-center"><strong>Vs #2</strong></td>
-				    	<td>
-				    		<%= select_tag "property_type_id[]", options_from_collection_for_select( PropertyType.all, "id", "type") %>
-				    	</td>
-				    	<td>
-				    		<%= select_tag "state_id[]", options_from_collection_for_select(State.all, "id","name") %>
-				    	</td>
-				    	<td><%= select_tag "stratus[]", options_for_select([1, 2, 3, 4, 5, 6]) %></td>
-				    	<td>
-				    		<%= select_tag "built_area_range[]", options_for_select([["0 a 100 M2", 0], ["101 a 200 M2", 1], ["201 a 300 M2", 2]], params[:built_area_range]) %>
-				    	</td>
-				    </tr>
-				  </tbody>
-				</table>
-					<!-- Second Submit Button  -->
-					<p class="text-right">
-						<%= submit_tag "Submit", name: nil, class: "btn btn-primary btn-md" %>
-					</p>
-			</div>
-		</div> 
-	</div><!-- end of container - Vs. Search Filter Table  -->
+
+<!-- botones gigantes -->
+<!-- <div class="row" id="botones">
+
+
+		<div class="col-lg-3 col-md-6">
+				<div class="panel panel-yellow">
+						<div class="panel-heading">
+								<div class="row">
+										<div class="col-xs-3">
+												<i class="fa fa-tasks fa-5x"></i>
+										</div>
+										<div class="col-xs-9 text-right">
+												<div class="text-md">Valor M2</div>
+												<div>M2</div>
+												<div>a otros usuarios</div>
+										</div>
+								</div>
+						</div>
+						<a href="#">
+								<div >
+
+
+										<div class="clearfix"></div>
+								</div>
+						</a>
+				</div>
+		</div>
+
+		<div class="col-lg-3 col-md-6">
+				<div class="panel panel-green">
+						<div class="panel-heading">
+								<div class="row">
+										<div class="col-xs-3 ">
+											 <i class="fa fa-support fa-5x"></i>
+										</div>
+										<div class="col-xs-9 text-right">
+												<div class="text-md">TRANSFERIR</div>
+												<div class="text-md">MONES</div>
+												<div>a otros usuarios</div>
+
+										</div>
+								</div>
+						</div>
+
+				</div>
+		</div>
+
+		<div class="col-lg-3 col-md-6">
+			<div class="panel panel-red">
+						<div class="panel-heading">
+								<div class="row">
+										<div class="col-xs-3 ">
+											 <i class="fa fa-shopping-cart fa-5x"></i>
+										</div>
+										<div class="col-xs-9 text-right">
+												<div class="text-md">RECARGAR</div>
+												<div class="text-md">MONES</div>
+												<div>a tu cuenta</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- /.row -->
+
+
+<!-- Vs. Search Filter Table   -->
+
+	<div class="row" id="busqueda">
+		<div class="col-sm-9">
+			<table class="table table-hover table-bordered table-condensed">
+				<thead>
+					<tr>
+						<th data-field="name"></th>
+						<th data-field="name">Tipo de Propiedad</th>
+						<th data-field="name">Departamento</th>
+						<th data-field="name">Estrato</th>
+						<th data-field="name">Area Construida</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="info">
+						<td class="text-center"><strong>Tu Busqueda</strong></td>
+						<td>
+							<%= select_tag nil, options_from_collection_for_select( PropertyType.all, "id", "type", params[:property_type_id]), {:disabled => true} %>
+						</td>
+						<td>
+							<%= select_tag nil, options_from_collection_for_select(State.all, "id","name", params[:state_id]), {:disabled => true} %>
+						</td>
+						<td>
+							<%= select_tag nil, options_for_select([1, 2, 3, 4, 5, 6], params[:stratus]), {:disabled => true} %> 
+						</td>
+						<td>
+							<%= select_tag nil, options_for_select([["0 a 100 M2", 0], ["101 a 200 M2", 1], ["201 a 300 M2", 2]], params[:built_area_range]), {:disabled => true} %>
+						</td>
+					</tr>
+					<tr>
+						<td style= "color: white">hola</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr class="active">
+						<td class="text-center"><strong>Vs #1</strong></td>
+						<td>
+							<%= select_tag "property_type_id[]", options_from_collection_for_select( PropertyType.all, "id", "type") %>
+						</td>
+						<td>
+							<%= select_tag "state_id[]", options_from_collection_for_select(State.all, "id","name") %>
+						</td>
+						<td><%= select_tag "stratus[]", options_for_select([1, 2, 3, 4, 5, 6]) %></td>
+						<td>
+							<%= select_tag "built_area_range[]", options_for_select([["0 a 100 M2", 0], ["101 a 200 M2", 1], ["201 a 300 M2", 2]], params[:built_area_range]) %>
+						</td>
+					</tr>
+					<tr class="success">
+						<td class="text-center"><strong>Vs #2</strong></td>
+						<td>
+							<%= select_tag "property_type_id[]", options_from_collection_for_select( PropertyType.all, "id", "type") %>
+						</td>
+						<td>
+							<%= select_tag "state_id[]", options_from_collection_for_select(State.all, "id","name") %>
+						</td>
+						<td><%= select_tag "stratus[]", options_for_select([1, 2, 3, 4, 5, 6]) %></td>
+						<td>
+							<%= select_tag "built_area_range[]", options_for_select([["0 a 100 M2", 0], ["101 a 200 M2", 1], ["201 a 300 M2", 2]], params[:built_area_range]) %>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- Second Submit Button  -->
+			<p class="text-right">
+				<%= submit_tag "Submit", name: nil, class: "btn btn-primary btn-md" %>
+			</p>
+		</div>
+	</div> 
+
 <% end %> <!-- end of form_tag  -->
 
 	<!-- Morris Script for Graphs  -->
@@ -148,3 +232,17 @@
 		labels: labels
 	});
 	</script> <!-- end of Morris Script  -->
+
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$("#menu-toggle").click(function(e) {
+	    e.preventDefault();
+	    $("#wrapper").toggleClass("toggled");
+	});
+	</script>

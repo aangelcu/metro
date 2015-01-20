@@ -19,7 +19,7 @@
 </head>
 <body id="page-top" class="fixed-navigation">
 	<div class="navbar-wrapper">
-	        <nav class="navbar navbar-default" role="navigation">
+	        <nav class="navy navbar navbar-default cabezote" role="navigation">
 	            <div class="container">
 	                <div class="navbar-header page-scroll">
 	                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -28,21 +28,35 @@
 	                        <span class="icon-bar"></span>
 	                        <span class="icon-bar"></span>
 	                    </button>
-	                    <a class="navbar-brand" href="#">MetroFlow</a>
+	                    <a class="navbar-brand" id="titulodash" href="#">MetroFlow</a>
 	                </div>
 	            </div>
 	        </nav>
 	</div>
 
 <!-- MAIN CONTAINER -->  
-<div class="container">
+<!-- <div class="container"> -->
 
 <%= yield %>
 
-</div> <!-- end of main container-->
-
-
-
+<!-- </div>  end of main container -->
 
 </body>
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 text-right">
+				<span class="copyright">Copyright &copy; MetroFlow LLC 2015</span>
+			</div>
+			<div class="col-md-4">
+				<ul class="list-inline social-buttons">
+					<li><a href="https://twitter.com/monecoins"><i class="fa fa-twitter"></i></a></li>
+					<li><a href="https://www.facebook.com/pages/MoNe/1765869786971858"><i class="fa fa-facebook"></i></a></li>
+					<li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
 </html>
