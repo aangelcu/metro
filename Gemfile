@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
 gem 'gravatar-ultimate'
+gem 'devise'
 
 gem 'raphael-rails', '~>2.1.2'
 # bundle exec rake doc:rails generates the API under doc/api.
