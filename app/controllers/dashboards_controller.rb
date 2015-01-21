@@ -13,6 +13,7 @@ class DashboardsController < ApplicationController
 		if params[:built_area_range].present? && params[:built_area_range][2].present?
 			@properties << build_query(2)
 		end
+		@m2_value_1 = @properties[0]
   end
 
   def build_query(index)

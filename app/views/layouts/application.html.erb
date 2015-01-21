@@ -17,35 +17,15 @@
 
 </head>
 <body id="page-top">
-	<!-- Navigation -->
-<div class="navbar-wrapper">
-				<nav <% if current_page?(root_path) %>  class="navbar navbar-default navbar-fixed-top" role="navigation"<%else%>id="navbar-out-home" class="navbar navbar-default navbar-fixed-top navbar-shrink navbar-out-home"  <%end%>>
-        <!-- <nav class="navbar navbar-default navbar-fixed-top" role="navigation"> -->
-            <div class="container">
-                <div class="navbar-header page-scroll">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#"><h4>MetroFlow</h4></a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a class="page-scroll" href="#page-top">Home</a></li>
-                        <li><a class="page-scroll" href="#features">Producto</a></li>
-                        <li><a class="page-scroll" href="#team">Equipo</a></li>
-                        <li><a class="page-scroll" href="#testimonials">Testimonios</a></li>
-                        <li><a class="page-scroll" href="#contact">Contacto</a></li>
-                        <li><%= link_to 'Login', new_user_session_path, :class => "page-scroll" %></li>
-                        <li><%= link_to 'Salir', destroy_user_session_path, method: :delete, :class => "page-scroll" %>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-</div>
+	<!-- NavBar -->
+	<div class="navbar-wrapper">
+		<% if user_signed_in? %> 
+		   <%= render 'shared/post_navbar' %> 
+		<% else %>
+		  <%= render 'shared/pre_navbar' %> 
+		<% end %>
+
+	</div> <!-- end of NavBar -->
 
 <!-- MAIN CONTAINER -->  
 <!-- <div class="container"> -->

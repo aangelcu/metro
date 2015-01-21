@@ -30,11 +30,15 @@
 }
 
 .container-dashboard {
-  margin-top: 70px;
+  margin-top: 80px;
 }
 
 .container-signin {
   margin-top: 100px;
+}
+
+#boton_login {
+  margin-right: 180px;
 }
 
 #titulodash {
