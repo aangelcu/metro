@@ -11,7 +11,8 @@ module DashboardsHelper
 			};
 
 			@properties.each_with_index do |props, index|
-				p["m2_sale_value_#{index}"] = props.total_grouped_by_day(start)[date]
+				value = props.total_grouped_by_day(start)[date]
+				p["m2_sale_value_#{index}"] = value.to_i if value
 			end
 
 			p

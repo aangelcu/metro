@@ -17,7 +17,8 @@
                     </p>
                 </div>
                 <div class="carousel-image wow zoomIn">
-                    <img src="laptop.png" alt="laptop"/>
+                    <%= image_tag "laptop.png", width: "100%" %>
+                    <!-- <img src="laptop.png" alt="laptop"/> -->
                 </div>
             </div>
             <!-- Set background for slide in css -->
@@ -84,7 +85,8 @@
             </div>
         </div>
         <div class="col-md-6 text-center  wow zoomIn">
-            <img src="perspective.png" alt="dashboard" class="img-responsive">
+            <%= image_tag "perspective.png", width: "100%" %>
+            <!-- <img src="perspective.png" alt="dashboard" class="img-responsive"> -->
         </div>
         <div class="col-md-3 text-center wow fadeInRight">
             <div>
@@ -114,9 +116,9 @@
         <div class="row">
             <div class="col-sm-4 wow fadeInLeft">
                 <div class="team-member">
-                    <img src="avatar3.jpg" class="img-responsive img-circle img-small" alt="">
-                    <h4><span class="navy">Amelia</span> Smith</h4>
-                    <p>Diseñadora Front-End</p>
+                    <%= image_tag(Gravatar.new("sezama03@hotmail.com").image_url+"?s=130", class:"img-responsive img-circle avatar-comments") %>
+                    <h4><span class="navy">Sebas</span> Mardini</h4>
+                    <p>#FullStackDeveloper</p>
                     <ul class="list-inline social-icon">
                         <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
@@ -144,9 +146,9 @@
             </div>
             <div class="col-sm-4 wow fadeInRight">
                 <div class="team-member">
-                    <img src="avatar2.jpg" class="img-responsive img-circle img-small" alt="">
-                    <h4><span class="navy">Peter</span> Johnson</h4>
-                    <p>Desarrollador Back-End</p>
+                    <%= image_tag(Gravatar.new("neneriostb@gmail.com").image_url+"?s=130", class:"img-responsive img-circle avatar-comments") %>
+                    <h4><span class="navy">Miguel</span> Casas</h4>
+                    <p>#FullStackDeveloper</p>
                     <ul class="list-inline social-icon">
                         <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>

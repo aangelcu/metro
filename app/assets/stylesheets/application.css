@@ -29,6 +29,14 @@
   margin-bottom: 1px;
 }
 
+.container-dashboard {
+  margin-top: 70px;
+}
+
+.container-signin {
+  margin-top: 100px;
+}
+
 #titulodash {
   color: white;
   font-size: 25px;
@@ -264,15 +272,8 @@
 */
 
 
-body{
-	position: relative;
-}
-
-.navbar-wrapper{
-	margin-top: 0;
-}
 
 nav.navbar{
-	position: absolute;
+
 	background: transparent;
 }
