@@ -50,6 +50,7 @@ h1 {
   right: 0;
   left: 0;
   z-index: 20;
+  background-color: transparent;
 }
 /* Flip around the padding for proper display in narrow viewports */
 .navbar-wrapper > .container {
@@ -471,6 +472,7 @@ fieldset[disabled] .btn-primary.active {
     background-color: #fff;
     border-color: #fff;
     padding: 15px 0;
+    position: relative;
   }
   .navbar-default .navbar-nav > .active > a:focus {
     background: transparent;

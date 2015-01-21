@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
@@ -261,3 +262,17 @@
     color: #3d8b3d;
 }
 */
+
+
+body{
+	position: relative;
+}
+
+.navbar-wrapper{
+	margin-top: 0;
+}
+
+nav.navbar{
+	position: absolute;
+	background: transparent;
+}
