@@ -36,7 +36,9 @@
                         <li><a class="page-scroll" href="#team">Equipo</a></li>
                         <li><a class="page-scroll" href="#testimonials">Testimonios</a></li>
                         <li><a class="page-scroll" href="#contact">Contacto</a></li>
-                        <li><a class="page-scroll" href="#contact">Login</a></li>
+                        <li><%= link_to 'Login', new_user_session_path, :class => "page-scroll" %></li>
+                        <li><%= link_to 'Salir', destroy_user_session_path, method: :delete, :class => "page-scroll" %>
+                        </li>
                     </ul>
                 </div>
             </div>

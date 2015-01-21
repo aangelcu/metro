@@ -1,5 +1,5 @@
 class DashboardsController < ApplicationController
-
+	before_action :authenticate_user!
 	def index
 		params[:from] = params[:from] || 3.months.ago
 		params[:to] = params[:to] || 15.days.ago
