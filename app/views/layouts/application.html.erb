@@ -17,15 +17,15 @@
 
 </head>
 <body id="page-top">
-	<!-- NavBar -->
-	<div class="navbar-wrapper">
-		<% if user_signed_in? %> 
-		   <%= render 'shared/post_navbar' %> 
-		<% else %>
-		  <%= render 'shared/pre_navbar' %> 
-		<% end %>
 
-	</div> <!-- end of NavBar -->
+	<!-- Navbar -->
+<div class="navbar-wrapper">
+    <% if user_signed_in? %> 
+    		<%= render 'shared/post_navbar' %> 
+    <% else %>
+    		<%= render 'shared/pre_navbar' %> 
+    <% end %>
+</div> <!-- End of Navbar -->
 
 <!-- MAIN CONTAINER -->  
 <!-- <div class="container"> -->

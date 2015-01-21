@@ -37,6 +37,11 @@
   margin-top: 100px;
 }
 
+#intern_nav {
+  background-color: #1ab394;
+  color: white;
+}
+
 #boton_login {
   margin-right: 180px;
 }
@@ -191,7 +196,7 @@
 
     #sidebar-wrapper {
         width: 250px;
-        padding-left: 20px;
+        padding-left: 10px;
     }
 
     #wrapper.toggled #sidebar-wrapper {

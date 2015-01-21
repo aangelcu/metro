@@ -16,8 +16,12 @@
                 <li><a class="page-scroll" href="#team">Equipo</a></li>
                 <li><a class="page-scroll" href="#testimonials">Testimonios</a></li>
                 <li><a class="page-scroll" href="#contact">Contacto</a></li>
-                <li><%= link_to 'Login', new_user_session_path, :class => "page-scroll" %></li>
-                <li><%= link_to 'Salir', destroy_user_session_path, method: :delete, :class => "page-scroll" %>
+                <% if user_signed_in? %>
+                    <li><%= link_to 'Salir', destroy_user_session_path, method: :delete, :class => "page-scroll" %>
+                    </li>                                           
+                <% else %>
+                    <li><%= link_to 'Login', new_user_session_path, :class => "page-scroll" %></li>
+                <% end %> 
                 </li>
             </ul>
         </div>
