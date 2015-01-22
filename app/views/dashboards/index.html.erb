@@ -37,7 +37,7 @@
 
 						<p>
 							<%= label_tag("Departamento") %>
-							<%= select_tag "state_id[]", options_from_collection_for_select(State.all, "id","name", params[:state_id][0]) %>
+							<%= select_tag "state_id[]", options_from_collection_for_select(State.all, "id","name", params[:state_id]) %>
 						</p> 
 
 						<p>
