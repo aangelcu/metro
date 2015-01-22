@@ -37,7 +37,7 @@
 
 						<p>
 							<%= label_tag("Departamento") %>
-							<%= select_tag "state_id[]", options_from_collection_for_select(State.all, "id","name", params[:state_id]) %>
+							<%= select_tag "state_id[]", options_from_collection_for_select(State.all, "id","name", params[:state_id][0]) %>
 						</p> 
 
 						<p>
@@ -104,16 +104,16 @@
 					<tr class="info">
 						<td class="text-center"><strong>Tu Busqueda</strong></td>
 						<td>
-							<%= select_tag nil, options_from_collection_for_select( PropertyType.all, "id", "type", params[:property_type_id]), {:disabled => true} %>
+							<%= select_tag nil, options_from_collection_for_select( PropertyType.all, "id", "type", params[:property_type_id] ? params[:property_type_id][0] : nil), {:disabled => true} %>
 						</td>
 						<td>
-							<%= select_tag nil, options_from_collection_for_select(State.all, "id","name", params[:state_id]), {:disabled => true} %>
+							<%= select_tag nil, options_from_collection_for_select(State.all, "id","name", params[:state_id] ? params[:state_id][0] : nil), {:disabled => true} %>
 						</td>
 						<td>
-							<%= select_tag nil, options_for_select([1, 2, 3, 4, 5, 6], params[:stratus]), {:disabled => true} %> 
+							<%= select_tag nil, options_for_select([1, 2, 3, 4, 5, 6], params[:stratus] ? params[:stratus][0] : nil), {:disabled => true} %> 
 						</td>
 						<td>
-							<%= select_tag nil, options_for_select([["0 a 100 M2", 0], ["101 a 200 M2", 1], ["201 a 300 M2", 2]], params[:built_area_range]), {:disabled => true} %>
+							<%= select_tag nil, options_for_select([["0 a 100 M2", 0], ["101 a 200 M2", 1], ["201 a 300 M2", 2]], params[:built_area_range] ? params[:built_area_range][0] : nil), {:disabled => true} %>
 						</td>
 					</tr>
 					<tr>
