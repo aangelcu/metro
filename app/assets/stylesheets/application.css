@@ -37,6 +37,26 @@
   margin-top: 100px;
 }
 
+.logo_navbar {
+  position: absolute;
+  top: 0;
+  left: 140px;
+  height: 80px;
+}
+
+.logo_navbar2 {
+  position: absolute;
+  top: 0;
+  left: 140px;
+  height: 70px;
+  z-index: 10000;
+  margin-top: -17px;
+}
+
+#botonguardar {
+  margin-left: 770px;
+}
+
 #intern_nav {
   background-color: #1ab394;
   color: white;
