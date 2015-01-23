@@ -55,6 +55,8 @@
 
 #botonguardar {
   margin-left: 500px;
+  position: absolute;
+  margin-top: -26px;
 }
 
 #intern_nav {
@@ -65,6 +67,10 @@
 .sign_in {
   padding-left: 50px;
   padding-right: 50px;
+}
+
+.lagrafica {
+  height: 633px;
 }
 
 #titulodash {
@@ -318,6 +324,7 @@ nav.navbar{
   position: absolute;
   right: 0;
   top: 100px;
+  height: 100%
   /*position: 100px;*/
 }
 .sidebard-panel .feed-element img.img-circle {
