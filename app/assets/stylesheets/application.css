@@ -72,6 +72,12 @@
   margin-top: -26px;
 }
 
+#botonexportar {
+  margin-left: 350px;
+  position: absolute;
+  margin-top: -26px;
+}
+
 #intern_nav {
   background-color: #1ab394;
   color: white;
