@@ -29,6 +29,19 @@
   margin-bottom: 1px;
 }
 
+#headergrafica {
+  background-color: #1ab394;
+}
+
+.textobotones {
+  color: #1ab394;
+}
+
+#headertabla {
+  background-color: #1ab394;
+  color: white;
+}
+
 .container-dashboard {
   margin-top: 80px;
 }

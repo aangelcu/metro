@@ -13,12 +13,12 @@
 				    </h3>
 				    
 						<p>
-							<%= label_tag("From") %> <br/>
+							<%= label_tag("Desde") %> <br/>
 							<%= date_field_tag(:from, params[:from].to_date) %>
 						</p>
 
 						<p>
-							<%= label_tag("To") %> <br/>
+							<%= label_tag("Hasta") %> <br/>
 							<%= date_field_tag(:to, params[:to].to_date) %>
 						</p>
 
@@ -61,7 +61,7 @@
 		<!-- Main Graph  -->
 	<div class="col-sm-6" id="grafica">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading" id="headergrafica">
 					<h3 class="panel-title"> <strong>Valor M2 sobre el Tiempo</strong></h3>
 					  <!-- <div class="col-lg-3 col-md-6"> -->
 						  <button class="btn btn-success" id="botonguardar"><span class="glyphicon glyphicon-home"></span> Guardar Busqueda</button>
@@ -91,7 +91,7 @@
 	<div class="row" id="busqueda">
 		<div class="col-sm-8">
 			<table class="table table-hover table-bordered table-condensed">
-				<thead>
+				<thead id="headertabla">
 					<tr>
 						<th data-field="name"></th>
 						<th data-field="name">Tipo de Propiedad</th>
