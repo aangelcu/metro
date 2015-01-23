@@ -359,7 +359,7 @@ li.pricing-title {
   padding-top: 40px;
   padding-bottom: 60px;
   background-color: #1ab394;
-  background-image: url('../img/avatar_all.png');
+  background-image: url('https://dl.dropboxusercontent.com/u/32573052/avatar_all.png');
 }
 .big-icon {
   font-size: 56px;
@@ -368,7 +368,7 @@ li.pricing-title {
   color: #1ab394;
 }
 .contact {
-  background-image: url('../img/word_map.png');
+  background-image: url('https://dl.dropboxusercontent.com/u/32573052/word_map.png');
   background-position: 50% 50%;
   background-repeat: no-repeat;
   margin-top: 60px;
